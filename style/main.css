@@ -1,0 +1,59 @@
+body{
+  background-image: url('../images/background-coffee.jpg');
+  background-attachment: fixed;
+}
+
+#main-logo{
+  height: 250px;
+  background-image: url('../images/logo-trackwork.jpg');
+  background-size: cover;
+  background-position: 0% 20%;
+}
+
+#main-nav{
+  padding: 5px;
+}
+
+.main-footer-nav{
+  list-style-type: disc;
+}
+
+.nav-image{
+  height: 25px;
+  margin-right: 10px;
+}
+
+.container-big{
+  min-height: 500px;
+}
+.container-white{
+  background-color: rgb(255,255,255);
+}
+
+.container-coffee{
+  background-color: rgb(111, 78, 55);
+  color: white;
+}
+.container-coffee a{
+  color: white;
+
+}
+
+.nav-coffee > li > a:hover,
+.nav-coffee > li > a:visited,
+.nav-coffee > li > a:active,
+.nav-coffee > li > a:focus,
+.nav-coffee > li.open,
+.nav-coffee > li.active > a,
+.nav-coffee > li.active > a:hover,
+.nav-coffee > li.active > a:focus {
+    background-color: rgb(106, 73, 50) !important;
+}
+
+.container-nopadding{
+  padding: 0;
+}
+
+.text-underline{
+  text-decoration: underline;
+}
