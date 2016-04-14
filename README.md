@@ -1,5 +1,5 @@
 # TrackWork re-written in Angular 1.5
-A Phalcon-based project being re-written using Angular as its frontend. Built from scratch.
+A Phalcon-based project being re-written using Angular as its frontend. Built from scratch.  
 Angular code style according to [github.com/johnpapa/angular-styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md).
 
 # Dependencies
