@@ -31,7 +31,7 @@
       <div class="container container-coffee">
           <nav>
             <ul class="nav nav-pills nav-coffee navbar-left href-coffee">
-              <li role="presentation" class="active"><a href="#">Home</a></li>
+              <li role="presentation" class="active"><a ui-sref="index">Home</a></li>
               <li role="presentation"><a href="#">Profile</a></li>
               <li role="presentation"><a href="#">Schema</a></li>
               <li role="presentation"><a href="#">Reports</a></li>
@@ -53,7 +53,8 @@
           </nav>
       </div>
     </header>
-    <main class="container container-big container-white" ng-controller="HomeCtrl as v" ng-include="'./partials/index.html'">
+    <!-- ng-controller="HomeCtrl as v" ng-include="'./partials/index.html'"-->
+    <main class="container container-big container-white" ui-view>
     </main>
     <footer id="main-footer" class="container container-coffee">
       <div class="row">
@@ -100,6 +101,7 @@
   <script src="./resources/flex-slider-2/jquery.flexslider-min.js"></script>
 
   <!-- Angular components -->
+  <script src="./resources/angular-ui-router.min.js"></script>
   <script src="./scripts/main.js"></script>
 
   <!-- Angular directives -->
