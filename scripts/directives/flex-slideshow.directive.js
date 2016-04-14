@@ -8,8 +8,8 @@ angular
 
 function flexSlideShow() {
   function drawSlideshow($scope, element, attrs) {
-    console.log(element);
-
+    var options = {};
+    
     element.flexslider({
       animation: "slide"
     });
