@@ -1,3 +1,5 @@
+@import url('plugins.css');
+
 body{
   background-image: url('../images/background-coffee.jpg');
   background-attachment: fixed;

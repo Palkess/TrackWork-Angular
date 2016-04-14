@@ -7,11 +7,14 @@ angular
     .directive('flexSlideshow', flexSlideShow);
 
 function flexSlideShow() {
-  function drawSlideshow() {
-    var element = $("slideshow-image");
-    var attrs = element[0].attributes;
-    console.log(attrs.src.value);
+  function drawSlideshow($scope, element, attrs) {
+    var options = {};
+    
+    element.flexslider({
+      animation: "slide"
+    });
   }
+
   return {
     restrict: 'EA',
     link: drawSlideshow
