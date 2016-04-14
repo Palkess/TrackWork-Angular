@@ -57,5 +57,17 @@ body{
 }
 
 .text-underline{
-  text-decoration: underline;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.news-slideshow > li{
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  width: 100%;
+}
+
+.news-article > p{
+  padding-left: 18px;
 }
