@@ -28,13 +28,13 @@
       <div class="container container-nopadding">
         <div id="main-logo"></div>
       </div>
-      <div class="container container-coffee">
+      <div class="container container-coffee" ng-controller="NavigationController as navigation">
           <nav>
             <ul class="nav nav-pills nav-coffee navbar-left href-coffee">
-              <li role="presentation" class="active"><a ui-sref="index">Home</a></li>
-              <li role="presentation"><a href="#">Profile</a></li>
-              <li role="presentation"><a href="#">Schema</a></li>
-              <li role="presentation"><a href="#">Reports</a></li>
+              <li role="presentation"><a ui-sref="index" ui-sref-active="active">Home</a></li>
+              <li role="presentation"><a ui-sref="profile" ui-sref-active="active">Profile</a></li>
+              <li role="presentation"><a ui-sref="schedule" ui-sref-active="active">Schedule</a></li>
+              <li role="presentation"><a ui-sref="reports" ui-sref-active="active">Reports</a></li>
             </ul>
 
             <div class="navbar-right">
@@ -103,6 +103,11 @@
   <!-- Angular components -->
   <script src="./resources/angular-ui-router.min.js"></script>
   <script src="./scripts/main.js"></script>
+  <script src="./scripts/controllers/index.controller.js"></script>
+  <script src="./scripts/controllers/navigation.controller.js"></script>
+  <script src="./scripts/controllers/profile.controller.js"></script>
+  <script src="./scripts/controllers/schedule.controller.js"></script>
+  <script src="./scripts/controllers/reports.controller.js"></script>
 
   <!-- Angular directives -->
   <script src="./scripts/directives/flex-slideshow.directive.js"></script>

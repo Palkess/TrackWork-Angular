@@ -46,9 +46,7 @@ body{
 .nav-coffee > li > a:active,
 .nav-coffee > li > a:focus,
 .nav-coffee > li.open,
-.nav-coffee > li.active > a,
-.nav-coffee > li.active > a:hover,
-.nav-coffee > li.active > a:focus {
+.nav-coffee > li > a.active {
     background-color: rgb(106, 73, 50) !important;
 }
 
