@@ -31,10 +31,10 @@
       <div class="container container-coffee" ng-controller="NavigationController as navigation">
           <nav>
             <ul class="nav nav-pills nav-coffee navbar-left href-coffee">
-              <li role="presentation" ng-class="navigation.isActive('/home')"><a ui-sref="index">Home</a></li>
-              <li role="presentation" ng-class="navigation.isActive('/profile')"><a ui-sref="profile">Profile</a></li>
-              <li role="presentation" ng-class="navigation.isActive('/schedule')"><a ui-sref="schedule">Schedule</a></li>
-              <li role="presentation" ng-class="navigation.isActive('/reports')"><a ui-sref="reports">Reports</a></li>
+              <li role="presentation"><a ui-sref="index" ui-sref-active="active">Home</a></li>
+              <li role="presentation"><a ui-sref="profile" ui-sref-active="active">Profile</a></li>
+              <li role="presentation"><a ui-sref="schedule" ui-sref-active="active">Schedule</a></li>
+              <li role="presentation"><a ui-sref="reports" ui-sref-active="active">Reports</a></li>
             </ul>
 
             <div class="navbar-right">
