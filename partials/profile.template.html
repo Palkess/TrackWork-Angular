@@ -1,2 +1,53 @@
-<h1>Profile</h1>
-{{profile.message}}
+<div class="row">
+  <div class="col-xs-2">
+    <img class="profile-image img-responsive img-rounded" src="images/user.jpg" alt="Jonas" />
+    <p>
+      <strong><small><i>Last online: April 19, 2016</i></small></strong>
+      <strong><small><i>Registered: April 4, 2013</i></small></strong>
+    </p>
+    <p>
+      <a ui-sref="profile.edit">
+        <button class="btn btn-default btn-xs wide-100"><i class="fa fa-wrench"></i> Edit profile</button>
+      </a>
+    </p>
+    <p>
+      <button class="btn btn-default btn-xs wide-100"><i class="fa fa-file-image-o"></i> Change picture</button>
+    </p>
+    <p>
+      <button class="btn btn-default btn-xs wide-100"><i class="fa fa-trash-o"></i> Remove account</button>
+    </p>
+  </div>
+  <div class="col-xs-10">
+    <h2 class="text-underline">Jonas <small><i>Member</i></small></h2>
+    <div class="well">
+      <h4 class="info-header text-underline-grey">Info</h4>
+      <div ui-view>
+        <dl>
+          <div class="row">
+            <div class="col-xs-4">
+              <p>
+                <dt>Name</dt>
+                <dd>{{profile.name}}</dd>
+              </p>
+              <p>
+                <dt>Birthday</dt>
+                <dd>{{profile.birthday}}</dd>
+              </p>
+              <p>
+                <dt>Email</dt>
+                <dd>{{profile.email}}</dd>
+              </p>
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <dt>Bio</dt>
+                <dd class="well">
+                  {{profile.bio}}
+                </dd>
+            </div>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
