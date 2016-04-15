@@ -36,6 +36,9 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   margin-right: 10px;
 }
 
+.padding-normal{
+  padding: 15px;
+}
 .container-big{
   min-height: 500px;
 }
@@ -69,6 +72,17 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   border-bottom: 1px solid black;
   width: 100%;
 }
+.text-underline-grey{
+  border-bottom: 1px solid grey;
+  width: 100%;
+}
+
+.info-header{
+  margin-top: 0;
+  color: rgb(100, 100, 100);
+  text-transform: uppercase;
+  font-weight: bold;
+}
 
 .news-slideshow > li{
   background-size: cover;
@@ -79,4 +93,12 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 
 .news-article > p{
   padding-left: 18px;
+}
+
+.profile-image{
+  border: 5px double #808080;
+}
+
+.wide-100{
+  width: 100%;
 }

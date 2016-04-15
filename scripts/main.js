@@ -19,6 +19,10 @@ trackworkApp.config(function($stateProvider, $urlRouterProvider) {
       controller: 'ProfileController',
       controllerAs: 'profile'
     })
+    .state('profile.edit', {
+      url: '/edit',
+      templateUrl: 'partials/profile.edit.template.html'
+    })
     .state('schedule', {
       url: '/schedule',
       templateUrl: 'partials/schedule.template.html',
