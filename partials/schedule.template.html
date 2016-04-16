@@ -1,2 +1,82 @@
-<h1>Schedule</h1>
-{{schedule.message}}
+<!-- Create entry -->
+<form ng-submit="schedule.save()">
+  <div class="row">
+    <div class="form-group col-xs-5">
+      <label class="sr-only">Description text</label>
+      <input type="text" class="form-control" name="schedule.description" ng-model="schedule.description" placeholder="Description" required>
+    </div>
+    <div class="form-group col-xs-2">
+      <label class="sr-only">Start</label>
+      <input datepicker type="text" class="form-control" name="schedule.start" ng-model="schedule.start" placeholder="Start" required>
+    </div>
+    <div class="form-group col-xs-2">
+      <label class="sr-only">End</label>
+      <input datepicker type="text" class="form-control" name="schedule.end" ng-model="schedule.end" placeholder="End" required>
+    </div>
+    <div class="form-group col-xs-2">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="schedule.overtime" ng-model="schedule.overtime">
+          Overtime
+        </label>
+      </div>
+    </div>
+    <div class="col-xs-1">
+      <input type="submit" class="btn btn-default" value="Save">
+    </div>
+  </div>
+</form>
+
+<!-- Entries -->
+<div class="row">
+  <div class="col-xs-12">
+    <div ng-hide="schedule.entries">
+      <h3>No entry saved...</h3>
+    </div>
+    <ul ng-show="schedule.entries" class="schedule-list">
+      <!-- Day -->
+      <li class="schedule-list-item" ng-repeat="(date, entries) in schedule.entries">
+        <h3 class="text-underline-grey">{{date | date}}</h3>
+        <!-- Entry -->
+        <div ng-repeat="entry in entries">
+          <div class="row schedule-entry">
+            <div class="col-xs-5">
+              <p>
+                {{entry.description}}
+              </p>
+            </div>
+            <div class="col-xs-1">
+              <p>
+                {{entry.overtime ? 'Overtime' : ''}}
+              </p>
+            </div>
+            <div class="col-xs-2">
+              <p>
+                {{entry.start | dateDiff : entry.end : 'h'}} hours
+              </p>
+            </div>
+            <div class="col-xs-2">
+              <p>
+                {{entry.start | date : 'HH:mm'}} - {{entry.end | date : 'HH:mm'}}
+              </p>
+            </div>
+            <div class="col-xs-2 text-right">
+              <p>
+                <button class="btn btn-xs btn-info">
+                  <i class="fa fa-wrench"></i>
+                </button>
+                <button class="btn btn-xs btn-danger">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </p>
+            </div>
+          </div>
+          <hr class="hr-small">
+        </div>
+        <!-- End of entry -->
+      </li>
+      <!-- End of day -->
+    </ul>
+  </div>
+</div>
+<!-- End of entries -->
