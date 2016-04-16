@@ -8,7 +8,7 @@ in a neat and tidy way. On top of that, TrackWork gives a basic analysis on the 
 to whoever is in need of it (an employer, cashier etc.).  
 
 This project is only a personal one and is not planned to be built for commercial use as of this moment. Additions and suggestions on improvement is
-however well appreciated.
+much appreciated.
 
 # Dependencies
 The following are included in the repo:
