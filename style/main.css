@@ -55,6 +55,11 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 
 }
 
+.hr-small{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .nav-coffee > li > a:hover,
 .nav-coffee > li > a:visited,
 .nav-coffee > li > a:active,
@@ -101,4 +106,15 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 
 .wide-100{
   width: 100%;
+}
+
+.schedule-entry{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.schedule-list{
+  list-style: none;
+}
+.schedule-list-item{
+
 }
