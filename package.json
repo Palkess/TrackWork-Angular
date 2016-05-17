@@ -1,0 +1,11 @@
+{
+  "name": "TrackWork",
+  "description": "A webapp written in AngularJS, powered by an ExpressJS server.",
+  "dependencies": {
+    "express": "^4.13.4",
+    "md5": "^2.1.0",
+    "minimist": "^1.2.0",
+    "mongoose": "^4.4.17",
+    "path": "^0.12.7"
+  }
+}
