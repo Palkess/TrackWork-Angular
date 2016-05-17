@@ -13,6 +13,12 @@ trackworkApp.config(function($stateProvider, $urlRouterProvider) {
       controller: 'IndexController',
       controllerAs: 'index'
     })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'partials/login.template.html',
+      controller: 'LoginController',
+      controllerAs: 'login'
+    })
     .state('profile', {
       url: '/profile',
       templateUrl: 'partials/profile.template.html',
