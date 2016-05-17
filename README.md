@@ -1,5 +1,5 @@
 # TrackWork re-written in Angular 1.5
-A Phalcon-based project being re-written using Angular as its frontend. Built from scratch.  
+A Phalcon-based project being re-written using Angular as its frontend.
 Angular code style according to [github.com/johnpapa/angular-styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md).
 
 ## About TrackWork
@@ -11,9 +11,32 @@ This project is only a personal one and is not planned to be built for commercia
 much appreciated.
 
 # Dependencies
-The following are included in the repo:
-* Font Awesome
-* JQuery
-* Angular
-* Flex Slider2
-* Twitter Bootstrap
++ [Node.js](https://nodejs.org/en/)
+
++ [npm](https://www.npmjs.com/)
+
++ [MongoDB](https://www.mongodb.org/)
+
+# Configure
+
+## MongoDB
+The connection to MongoDB is set up in public/app.js. Follows the general guidelines displayed on the MongoDB website.
+
+## Web port
+The default port for the server is 3000. To change this, add '--webport X' as a flag when starting the node server. X will then become the new port.
+
+# How to install
+1. Clone the repository
+2. Step into the folder
+```
+$ cd TrackWork-Angular
+```
+3. Install node modules
+```
+$ npm install
+```
+4. Run the node server
+```
+$ node server.js
+```
+5. Visit http://localhost:3000 in any modern browser( Firefox has been the primary target )
