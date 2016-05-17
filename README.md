@@ -27,16 +27,7 @@ The default port for the server is 3000. To change this, add '--webport X' as a 
 
 # How to install
 1. Clone the repository
-2. Step into the folder
-```
-$ cd TrackWork-Angular
-```
-3. Install node modules
-```
-$ npm install
-```
-4. Run the node server
-```
-$ node server.js
-```
+2. Step into the folder ``` $ cd TrackWork-Angular ```
+3. Install node modules ``` $ npm install ```
+4. Run the node server ``` $ node server.js ```
 5. Visit http://localhost:3000 in any modern browser( Firefox has been the primary target )
