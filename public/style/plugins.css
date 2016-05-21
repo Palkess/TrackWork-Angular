@@ -23,3 +23,13 @@
   font-size: 1.2em;
   line-height: 18px;
 }
+
+/* Bootstrap */
+.row{
+  margin: 0px !important;
+}
+
+/* Angular */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
