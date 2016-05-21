@@ -3,6 +3,8 @@
 body{
   background-image: url('../images/background-coffee.jpg');
   background-attachment: fixed;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 a:focus, a:active,

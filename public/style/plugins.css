@@ -23,3 +23,8 @@
   font-size: 1.2em;
   line-height: 18px;
 }
+
+/* Bootstrap */
+.row{
+  margin: 0px !important;
+}

@@ -1,5 +1,6 @@
 // dependencies
 var express = require('express');
+var bodyParser = require('body-parser');
 var path = require('path');
 var mongoose = require('mongoose');
 
@@ -7,6 +8,14 @@ mongoose.connect('mongodb://127.0.0.1/TrackWork');
 
 // create instance of express
 var app = express();
+
+// Config
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // Routes
 var userRoutes = require('./server/routes/user.routes.js');

@@ -2,6 +2,7 @@
   "name": "TrackWork",
   "description": "A webapp written in AngularJS, powered by an ExpressJS server.",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "md5": "^2.1.0",
     "minimist": "^1.2.0",

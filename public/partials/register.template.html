@@ -1,0 +1,73 @@
+<div ng-show="register.status" class="alert alert-{{register.status.type}}">
+  <p>
+    <i ng-if="register.status.icon" class="fa fa-{{register.status.icon}}"></i>
+    {{register.status.message}}
+  </p>
+</div>
+
+<div ng-show="register.user.password != register.user.passwordAgain" class="alert alert-danger">
+  <p>
+    Missmatching passwords!
+  </p>
+</div>
+
+<div class="row">
+  <div class="col-xs-7">
+    <form class="form" ng-submit="register.complete()">
+
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" name="register.user.email" ng-model="register.user.email" type="email" placeholder="user@domain.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Firstname</label>
+        <input class="form-control" name="register.user.firstname" ng-model="register.user.firstname" type="text" placeholder="John" required>
+      </div>
+
+      <div class="form-group">
+        <label>Lastname</label>
+        <input class="form-control" name="register.user.lastname" ng-model="register.user.lastname" type="text" placeholder="Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" name="register.user.password" ng-model="register.user.password" type="password" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password again</label>
+        <input class="form-control" name="register.user.passwordAgain" ng-model="register.user.passwordAgain" type="password" required>
+      </div>
+      <p>
+        By registering you accept the Terms of Agreement
+      </p>
+      <input ng-disabled="register.user.password != register.user.passwordAgain || register.user.passwordAgain == ''" class="btn btn-info" type="submit" value="Register">
+      <a class="btn btn-danger" ui-sref="index">Cancel</a>
+    </form>
+  </div>
+  <div class="col-xs-5">
+    <h3>Terms of Agreement</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit
+      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit
+      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</div>
