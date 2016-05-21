@@ -23,18 +23,18 @@ function RegisterController(UserService) {
         console.log(message);
 
         vm.status = {
-          message: "Your user has been registered!",
-          type: "success",
-          icon: "check"
+          message: message,
+          type: 'success',
+          icon: 'check'
         };
       }, function(message){
         // Failure
         console.log(message);
 
         vm.status = {
-          message: "Your user has not been registered!",
-          type: "danger",
-          icon: "times"
+          message: message,
+          type: 'danger',
+          icon: 'times'
         };
       });
   };

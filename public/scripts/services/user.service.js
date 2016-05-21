@@ -21,7 +21,7 @@ function UserService($sessionStorage, $q, $http) {
       $http.post('/user/register', user)
         .then(function(data, status){
           // Success
-          if(status == 200){
+          if(data.status == 200){
             resolve(data.data.message);
           } else {
             reject(data.data.message);

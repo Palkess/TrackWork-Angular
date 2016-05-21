@@ -2,6 +2,7 @@
   <p>
     <i ng-if="register.status.icon" class="fa fa-{{register.status.icon}}"></i>
     {{register.status.message}}
+    <a ng-show="register.status.type == 'success'" ui-sref="login">Log in here!</a>
   </p>
 </div>
 

@@ -15,20 +15,34 @@ router.post('/register', function(req, res){
   if(!error){
     var salt = Math.random();
 
-    var newUser = new User({
-      "email": req.body.email,
-      "firstname": req.body.firstname,
-      "lastname": req.body.lastname,
-      "password": md5(req.body.password + salt),
-      "salt": salt,
-      "accesstoken": md5(req.body.email + salt),
-      "isAdmin": 0
-    });
+    User.find({ email: req.body.email }, function(err, document){
+      if(err){
+        res.status(500).json({
+          "message": "Internal server error"
+        });
+      } else {
+        if(document.length){
+          res.status(500).json({
+            "message": "Already existing email"
+          });
+        } else {
+          var newUser = new User({
+            "email": req.body.email,
+            "firstname": req.body.firstname,
+            "lastname": req.body.lastname,
+            "password": md5(req.body.password + salt),
+            "salt": salt,
+            "accesstoken": md5(req.body.email + salt),
+            "isAdmin": 0
+          });
 
-    newUser.save();
+          newUser.save();
 
-    res.status(200).json({
-      "message": "The user has been created!"
+          res.status(200).json({
+            "message": "The user has been created!"
+          });
+        }
+      }
     });
   } else {
     res.status(500).json({
