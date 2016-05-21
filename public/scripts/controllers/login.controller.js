@@ -4,15 +4,16 @@
  */
 angular
     .module('TrackWorkApp')
-    .controller('LoginController', ['UserService', LoginController]);
+    .controller('LoginController', ['$state', 'UserService', LoginController]);
 
-function LoginController(UserService) {
+function LoginController($state, UserService) {
   var vm = this;
 
   vm.login = function(){
     UserService.login(vm.user.email, vm.user.password)
       .then(function(message){
         console.log(message);
+        $state.go('profile');
       }, function(message){
         console.log(message);
       });
