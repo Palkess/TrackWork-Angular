@@ -12,10 +12,9 @@ function LoginController($state, UserService) {
   vm.login = function(){
     UserService.login(vm.user.email, vm.user.password)
       .then(function(message){
-        console.log(message);
         $state.go('profile');
       }, function(message){
-        console.log(message);
+        vm.error = message;
       });
   };
 }
