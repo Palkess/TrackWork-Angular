@@ -1,6 +1,7 @@
 // dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
+var logger = require('morgan');
 var path = require('path');
 var mongoose = require('mongoose');
 
@@ -16,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+// Setting up logger
+app.use(logger('dev'));
 
 // Routes
 var userRoutes = require('./server/routes/user.routes.js');
