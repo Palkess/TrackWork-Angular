@@ -15,22 +15,26 @@
   <div class="row">
     <div class="col-xs-4">
       <p class="form-group">
-        <label>Name</label>
-        <input type="text" name="profile.name" class="form-control" ng-model="profile.name" required>
+        <label>First Name</label>
+        <input type="text" name="profile.user.firstname" class="form-control" ng-model="profile.user.firstname" required>
       </p>
       <p class="form-group">
-        <label>Birthday</label>
-        <input id="datetimepicker" type="text" name="profile.birthday" class="form-control" ng-model="profile.birthday" required>
+        <label>Last Name</label>
+        <input type="text" name="profile.user.lastname" class="form-control" ng-model="profile.user.lastname" required>
       </p>
       <p class="form-group">
-        <label>Email</label>
-        <input type="email" name="profile.email" class="form-control" ng-model="profile.email" required>
+        <label>Birthday</label><br>
+        {{profile.user.birthday}}
+      </p>
+      <p class="form-group">
+        <label>Email</label><br>
+        {{profile.user.email}}
       </p>
     </div>
     <div class="col-xs-8">
       <p class="form-group">
-        <label>Bio</label>
-        <textarea class="form-control" rows="5" name="profile.bio" ng-model="profile.bio"></textarea>
+        <label>Bio</label><br>
+        {{profile.user.bio}}
       </p>
     </div>
   </div>
