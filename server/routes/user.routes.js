@@ -58,7 +58,6 @@ router.post('/login', function(req, res){
         "message": err
       });
     } else if(document) {
-      console.log(document);
       if(md5(req.body.password + document.salt) == document.password){
         res.status(200).json({
           "message": "The user was successfully recognized.",
