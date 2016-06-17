@@ -12,6 +12,7 @@ function UserService($sessionStorage, $q, $http) {
     'login': login,
     'logout': logout,
     'user': getUser,
+    'update': updateUser,
     'isAuthenticated': isAuthenticated,
     'isAdmin': isAdmin
   };
@@ -60,6 +61,31 @@ function UserService($sessionStorage, $q, $http) {
 
   function getUser(){
     return $sessionStorage.user;
+  }
+
+  function updateUser(updatedContent){
+    return $q(function(resolve, reject){
+      var user = getUser();
+
+      var send = {
+        'updatedContent': updatedContent,
+        'accesstoken': user.accesstoken,
+        'user': user.email
+      };
+
+      $http.post('/user/update', send)
+        .then(function(data){
+          // Success
+          if(data.status == 200){
+            resolve(data.data.message);
+          } else {
+            reject(data.data.message);
+          }
+        }, function(data){
+          // Failure
+          reject(data.data.message);
+        });
+    });
   }
 
   function isAuthenticated(){
