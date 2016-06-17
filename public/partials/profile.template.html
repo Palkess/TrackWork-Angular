@@ -3,7 +3,7 @@
     <img class="profile-image img-responsive img-rounded" src="images/user.jpg" alt="Jonas" />
     <p>
       <strong><small><i>Last online: April 19, 2016</i></small></strong>
-      <strong><small><i>Registered: April 4, 2013</i></small></strong>
+      <strong><small><i>Registered: {{profile.user.created | date}}</i></small></strong>
     </p>
     <p>
       <a ui-sref="profile.edit">
@@ -18,7 +18,7 @@
     </p>
   </div>
   <div class="col-xs-10">
-    <h2 class="text-underline">Jonas <small><i>Member</i></small></h2>
+    <h2 class="text-underline">{{profile.user.firstname}} <small><i>{{profile.user.isAdmin ? 'Admin' : 'Member'}}</i></small></h2>
     <div class="well">
       <h4 class="info-header text-underline-grey">Info</h4>
       <div ui-view>
@@ -27,22 +27,22 @@
             <div class="col-xs-4">
               <p>
                 <dt>Name</dt>
-                <dd>{{profile.name}}</dd>
+                <dd>{{profile.user.firstname}} {{profile.user.lastname}}</dd>
               </p>
               <p>
                 <dt>Birthday</dt>
-                <dd>{{profile.birthday}}</dd>
+                <dd>{{profile.user.birthday}}</dd>
               </p>
               <p>
                 <dt>Email</dt>
-                <dd>{{profile.email}}</dd>
+                <dd>{{profile.user.email}}</dd>
               </p>
             </div>
             <div class="col-xs-8">
               <p>
                 <dt>Bio</dt>
                 <dd class="well">
-                  {{profile.bio}}
+                  {{profile.user.bio}}
                 </dd>
             </div>
           </div>

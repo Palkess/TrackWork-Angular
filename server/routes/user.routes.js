@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user.model.js');
+var Authenticate = require('../modules/authenticate.module.js');
 var md5 = require('md5');
 
 router.post('/register', function(req, res){
@@ -51,6 +52,29 @@ router.post('/register', function(req, res){
   }
 });
 
+router.post('/update', function(req, res){
+  Authenticate.isValid(req.body.accesstoken)
+    .then(function(user){
+      if(user === null){
+        res.status(401).json({
+          'message': 'Unauthorized action'
+        });
+      } else {
+        User.findOneAndUpdate({'_id': user._id}, req.body.updatedContent, function(err, doc){
+          if(err){
+            res.status(500).json({
+              'message': err
+            });
+          } else {
+            res.status(200).json({
+              'message': 'Your user has been updated!'
+            });
+          }
+        })
+      }
+    });
+});
+
 router.post('/login', function(req, res){
   User.findOne({ "email": req.body.email }, function(err, document){
     if(err){
@@ -58,7 +82,6 @@ router.post('/login', function(req, res){
         "message": err
       });
     } else if(document) {
-      console.log(document);
       if(md5(req.body.password + document.salt) == document.password){
         res.status(200).json({
           "message": "The user was successfully recognized.",

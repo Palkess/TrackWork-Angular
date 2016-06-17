@@ -8,6 +8,6 @@ var User = require('../models/user.model.js');
 var exports = module.exports;
 
 exports.isValid = function(accessToken) {
-  var query = User.findOne({accessToken: accessToken});
+  var query = User.findOne({accesstoken: accessToken});
   return query.exec();
 };
