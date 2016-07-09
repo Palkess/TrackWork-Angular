@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Entry = new Schema({
-  'ownerID': String,
+  'owner': String,
   'description': String,
   'start': Date,
   'end': Date,
