@@ -4,10 +4,12 @@
  */
 angular
     .module('TrackWorkApp')
-    .controller('ScheduleController', ScheduleController);
+    .controller('ScheduleController',['$sessionStorage', 'EntryService', ScheduleController]);
 
-function ScheduleController() {
+function ScheduleController($sessionStorage, EntryService) {
   var vm = this;
+
+  EntryService.getAll();
 
   // Set this to vm.entries for example data
   var exampleEntries = {
@@ -50,12 +52,15 @@ function ScheduleController() {
       vm.entries[moment(date).format('YYYY-MM-DD')] = [];
     }
 
-    vm.entries[moment(date).format('YYYY-MM-DD')].push({
+    EntryService.add({
       'description': vm.description,
       'start': vm.start,
       'end': vm.end,
-      'overtime': vm.overtime ? vm.overtime : false
+      'overtime': vm.overtime ? vm.overtime : false,
+      'holiday': false
     });
+
+    console.log($sessionStorage.user);
 
     vm.description = '';
     vm.start = '';

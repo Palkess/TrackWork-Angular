@@ -23,8 +23,10 @@ app.use(logger('dev'));
 
 // Routes
 var userRoutes = require('./server/routes/user.routes.js');
+var entryRoutes = require('./server/routes/entry.routes.js');
 
 app.use('/user/', userRoutes);
+app.use('/entries/', entryRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
