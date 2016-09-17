@@ -16,6 +16,7 @@ function EntryService($sessionStorage, $q, $http, UserService) {
   };
 
   function get(entryID){
+    // This function is retarded, remake to a post or git gud
     return $q(function(resolve, reject){
       $http.get('/entries/get', {'entryID': entryID})
         .then(function(data){
@@ -33,15 +34,15 @@ function EntryService($sessionStorage, $q, $http, UserService) {
   function getAll(){
     return $q(function(resolve, reject){
       var owner = $sessionStorage.user.email;
-      $http.get('/entries/getAll', {'owner': owner})
+      $http.post('/entries/getAll', {'owner': owner})
         .then(function(data){
           // Success
 
-          resolve();
+          resolve(data.data.documents);
         }, function(data){
           // Error
 
-          reject();
+          reject(data['message']);
         });
     });
   }
