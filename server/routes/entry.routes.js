@@ -14,16 +14,16 @@ router.post('/add', function(req, res){
   });
 });
 
-router.get('/getAll', function(req, res){
-  console.log(req.body);
-  Entry.find({ owner: req.body.owner }, function(err, document){
+router.post('/getAll', function(req, res){
+  console.log(req.query)
+  Entry.find({ owner: req.body.owner }, function(err, documents){
     if(err){
       res.status(500).json({
         'message': err
       });
     } else {
       res.status(200).json({
-        'documents': document
+        'documents': documents
       });
     }
   });
