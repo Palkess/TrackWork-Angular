@@ -45,7 +45,7 @@ function ScheduleController($sessionStorage, EntryService)   {
    * Retrieves the entries from database and puts them into the view
    *
    */
-  function updateEntries(){
+  function fetchEntries() {
     EntryService.getAll()
       .then(function(data){
         // Success
@@ -66,6 +66,8 @@ function ScheduleController($sessionStorage, EntryService)   {
             }
           }
           vm.entries = entries;
+        } else {
+          vm.entries = null;
         }
       }, function(message){
         // Error
@@ -73,12 +75,18 @@ function ScheduleController($sessionStorage, EntryService)   {
       });
   }
 
+  /**
+   * Takes the input values from the view
+   * and saves it as an entry in the database.
+   *
+   */
   vm.save = function() {
     var date = new Date(vm.start);
     if(!vm.entries) {
       vm.entries = {};
     }
 
+    // Add promise handling, not sure why it isn't here
     EntryService.add({
       'description': vm.description,
       'start': vm.start,
@@ -87,7 +95,7 @@ function ScheduleController($sessionStorage, EntryService)   {
       'holiday': false
     });
 
-    updateEntries();
+    fetchEntries();
 
     vm.description = '';
     vm.start = '';
@@ -95,5 +103,23 @@ function ScheduleController($sessionStorage, EntryService)   {
     vm.overtime = false;
   };
 
-  updateEntries();
+  /*
+   * Removes an entry in the database
+   * @entryID - Id-string of the chosen entry in the view
+   *
+   */
+  vm.remove = function(entryID) {
+    EntryService.remove(entryID)
+      .then(function(message) {
+        // Success
+        alert(message);
+
+        fetchEntries();
+      }, function(message) {
+        // Error
+        alert(message);
+      });
+  };
+
+  fetchEntries();
 }
