@@ -66,6 +66,8 @@ function ScheduleController($sessionStorage, EntryService)   {
             }
           }
           vm.entries = entries;
+        } else {
+          vm.entries = null;
         }
       }, function(message){
         // Error
