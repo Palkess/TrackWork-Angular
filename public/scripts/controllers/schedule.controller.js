@@ -45,7 +45,7 @@ function ScheduleController($sessionStorage, EntryService)   {
    * Retrieves the entries from database and puts them into the view
    *
    */
-  function fetchEntries(){
+  function fetchEntries() {
     EntryService.getAll()
       .then(function(data){
         // Success
@@ -79,6 +79,7 @@ function ScheduleController($sessionStorage, EntryService)   {
       vm.entries = {};
     }
 
+    // Add promise handling, not sure why it isn't here
     EntryService.add({
       'description': vm.description,
       'start': vm.start,
@@ -93,6 +94,17 @@ function ScheduleController($sessionStorage, EntryService)   {
     vm.start = '';
     vm.end = '';
     vm.overtime = false;
+  };
+
+  vm.remove = function(entryID) {
+    EntryService.remove(entryID)
+      .then(function(message) {
+        alert(message);
+
+        fetchEntries();
+      }, function(message) {
+        alert(message);
+      });
   };
 
   fetchEntries();
