@@ -23,7 +23,7 @@ much appreciated.
 The connection to MongoDB is set up in public/app.js. Follows the general guidelines displayed on the MongoDB website.
 
 ## Web port
-The default port for the server is 3000. To change this, add '--webport X' as a flag when starting the node server. X will then become the new port.
+The default port for the server is 3000. To change this, add '--webport X' as an option when starting the node server. X will then become the new port.
 
 # How to install
 1. Clone the repository
