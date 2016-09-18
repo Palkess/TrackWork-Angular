@@ -7,7 +7,7 @@ TrackWork is a personal project originally built in the PHP-MVC Phalcon. It's de
 in a neat and tidy way. On top of that, TrackWork gives a basic analysis on the logged hours and can export a PDF-document with all the information
 to whoever is in need of it (an employer, cashier etc.).  
 
-This project is only a personal one and is not planned to be built for commercial use as of this moment. Additions and suggestions on improvement is
+This is a personal project and is not planned to be built for commercial use as of this moment. Additions and suggestions on improvement is
 much appreciated.
 
 # Dependencies
