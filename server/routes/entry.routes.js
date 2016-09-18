@@ -15,7 +15,6 @@ router.post('/add', function(req, res){
 });
 
 router.post('/getAll', function(req, res){
-  console.log(req.query)
   Entry.find({ owner: req.body.owner }, function(err, documents){
     if(err){
       res.status(500).json({
