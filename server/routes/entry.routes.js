@@ -4,7 +4,6 @@ var router = express.Router();
 var Entry = require('../models/entry.model.js');
 
 router.post('/add', function(req, res){
-
   var newEntry = new Entry(req.body);
 
   newEntry.save();

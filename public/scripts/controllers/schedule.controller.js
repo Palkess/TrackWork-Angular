@@ -75,6 +75,11 @@ function ScheduleController($sessionStorage, EntryService)   {
       });
   }
 
+  /**
+   * Takes the input values from the view
+   * and saves it as an entry in the database.
+   *
+   */
   vm.save = function() {
     var date = new Date(vm.start);
     if(!vm.entries) {
@@ -98,13 +103,20 @@ function ScheduleController($sessionStorage, EntryService)   {
     vm.overtime = false;
   };
 
+  /*
+   * Removes an entry in the database
+   * @entryID - Id-string of the chosen entry in the view
+   *
+   */
   vm.remove = function(entryID) {
     EntryService.remove(entryID)
       .then(function(message) {
+        // Success
         alert(message);
 
         fetchEntries();
       }, function(message) {
+        // Error
         alert(message);
       });
   };
