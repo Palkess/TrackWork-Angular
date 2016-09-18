@@ -6,34 +6,8 @@ angular
     .module('TrackWorkApp')
     .controller('ScheduleController',['$sessionStorage', 'EntryService', ScheduleController]);
 
-function ScheduleController($sessionStorage, EntryService) {
+function ScheduleController($sessionStorage, EntryService)   {
   var vm = this;
-
-  EntryService.getAll()
-    .then(function(data){
-      // Success
-
-      // Sort the entries after day for a pretty display in the partial
-      var entries = {};
-
-      for(x in data){
-        // Get the date, not pretty but it works
-        var date = moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").year();
-        date += '-' + (moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").month() < 10 ? '0' + moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").month() : moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").month());
-        date += '-' + (moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").day() < 10 ? '0' + moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").day() : moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").day());
-        console.log(moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").local().month());
-        if(date in entries){
-          entries[date].push(data[x]);
-        } else {
-          entries[date] = [];
-          entries[date].push(data[x]);
-        }
-      }
-      vm.entries = entries;
-    }, function(message){
-      // Error
-      console.error(message);
-    });
 
   // Set this to vm.entries for example data
   var exampleEntries = {
@@ -67,13 +41,42 @@ function ScheduleController($sessionStorage, EntryService) {
     ]
   };
 
+  /**
+   * Retrieves the entries from database and puts them into the view
+   *
+   */
+  function updateEntries(){
+    EntryService.getAll()
+      .then(function(data){
+        // Success
+
+        if(data.length > 0){
+          var entries = {};
+
+          // Sort the entries after day for a pretty display in the partial
+          for(x in data){
+            // Get the date
+            var date = moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").format('YYYY-MM-DD');
+
+            if(date in entries){
+              entries[date].push(data[x]);
+            } else {
+              entries[date] = [];
+              entries[date].push(data[x]);
+            }
+          }
+          vm.entries = entries;
+        }
+      }, function(message){
+        // Error
+        console.error(message);
+      });
+  }
+
   vm.save = function() {
     var date = new Date(vm.start);
     if(!vm.entries) {
       vm.entries = {};
-    }
-    if(!vm.entries[moment(date).format('YYYY-MM-DD')]) {
-      vm.entries[moment(date).format('YYYY-MM-DD')] = [];
     }
 
     EntryService.add({
@@ -84,11 +87,13 @@ function ScheduleController($sessionStorage, EntryService) {
       'holiday': false
     });
 
-    console.log($sessionStorage.user);
+    updateEntries();
 
     vm.description = '';
     vm.start = '';
     vm.end = '';
     vm.overtime = false;
   };
+
+  updateEntries();
 }
