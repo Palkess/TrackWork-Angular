@@ -45,7 +45,7 @@ function ScheduleController($sessionStorage, EntryService)   {
    * Retrieves the entries from database and puts them into the view
    *
    */
-  function updateEntries(){
+  function fetchEntries(){
     EntryService.getAll()
       .then(function(data){
         // Success
@@ -87,7 +87,7 @@ function ScheduleController($sessionStorage, EntryService)   {
       'holiday': false
     });
 
-    updateEntries();
+    fetchEntries();
 
     vm.description = '';
     vm.start = '';
@@ -95,5 +95,5 @@ function ScheduleController($sessionStorage, EntryService)   {
     vm.overtime = false;
   };
 
-  updateEntries();
+  fetchEntries();
 }
