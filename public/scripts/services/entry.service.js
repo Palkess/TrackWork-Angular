@@ -66,7 +66,7 @@ function EntryService($sessionStorage, $q, $http, UserService) {
 
   function update(entryData, entryID){
     return $q(function(resolve, reject){
-      $http.get('/entries/update', {'entryID': entryID, 'entryData': entryData})
+      $http.post('/entries/update', {'entryID': entryID, 'entryData': entryData})
         .then(function(data){
           // Success
 
@@ -81,15 +81,15 @@ function EntryService($sessionStorage, $q, $http, UserService) {
 
   function remove(entryID){
     return $q(function(resolve, reject){
-      $http.get('/entries/remove', {'entryID': entryID})
+      $http.post('/entries/remove', {'entryID': entryID})
         .then(function(data){
           // Success
 
-          resolve();
+          resolve(data.data.message);
         }, function(data){
           // Error
 
-          reject();
+          reject(data.data.message);
         });
     });
   }
