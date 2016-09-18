@@ -15,7 +15,7 @@ router.post('/add', function(req, res){
 });
 
 router.post('/remove', function(req, res){
-  Entry.findOneAndRemove({_id: req.body.id}, function(err){
+  Entry.findOneAndRemove({_id: req.body.entryID}, function(err){
     if(err){
       res.status(500).json({
         'message': err
