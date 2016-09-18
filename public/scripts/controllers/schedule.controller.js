@@ -4,9 +4,9 @@
  */
 angular
     .module('TrackWorkApp')
-    .controller('ScheduleController', ScheduleController);
+    .controller('ScheduleController',['$sessionStorage', 'EntryService', ScheduleController]);
 
-function ScheduleController() {
+function ScheduleController($sessionStorage, EntryService)   {
   var vm = this;
 
   // Set this to vm.entries for example data
@@ -41,25 +41,59 @@ function ScheduleController() {
     ]
   };
 
+  /**
+   * Retrieves the entries from database and puts them into the view
+   *
+   */
+  function updateEntries(){
+    EntryService.getAll()
+      .then(function(data){
+        // Success
+
+        if(data.length > 0){
+          var entries = {};
+
+          // Sort the entries after day for a pretty display in the partial
+          for(x in data){
+            // Get the date
+            var date = moment(data[x].start, "YYYY-MM-DDTHH:mm:ssZ").format('YYYY-MM-DD');
+
+            if(date in entries){
+              entries[date].push(data[x]);
+            } else {
+              entries[date] = [];
+              entries[date].push(data[x]);
+            }
+          }
+          vm.entries = entries;
+        }
+      }, function(message){
+        // Error
+        console.error(message);
+      });
+  }
+
   vm.save = function() {
     var date = new Date(vm.start);
     if(!vm.entries) {
       vm.entries = {};
     }
-    if(!vm.entries[moment(date).format('YYYY-MM-DD')]) {
-      vm.entries[moment(date).format('YYYY-MM-DD')] = [];
-    }
 
-    vm.entries[moment(date).format('YYYY-MM-DD')].push({
+    EntryService.add({
       'description': vm.description,
       'start': vm.start,
       'end': vm.end,
-      'overtime': vm.overtime ? vm.overtime : false
+      'overtime': vm.overtime ? vm.overtime : false,
+      'holiday': false
     });
+
+    updateEntries();
 
     vm.description = '';
     vm.start = '';
     vm.end = '';
     vm.overtime = false;
   };
+
+  updateEntries();
 }
