@@ -1,10 +1,23 @@
 <div class="row">
   <!-- Select period -->
   <div class="col-md-7">
-    <label>Period</label>
-    <select>
-      <option value="#">2016</option>
-    </select>
+    <div class="dropdown">
+      <label>Period</label>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        2016
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">2016</a></li>
+        <li><a href="#">January, 2016</a></li>
+        <li><a href="#">February, 2016</a></li>
+        <li><a href="#">March, 2016</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">2015</a></li>
+        <li><a href="#">January, 2015</a></li>
+        <li><a href="#">February, 2015</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- Toggle controls -->
