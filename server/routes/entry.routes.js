@@ -28,7 +28,7 @@ router.post('/remove', function(req, res){
 });
 
 router.post('/getAll', function(req, res){
-  Entry.find({ owner: req.body.owner }, function(err, documents){
+  Entry.find({ owner: req.body.owner }).sort({ start: -1 }).exec(function(err, documents){
     if(err){
       res.status(500).json({
         'message': err
