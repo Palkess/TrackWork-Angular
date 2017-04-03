@@ -1,4 +1,4 @@
-var trackworkApp = angular.module('TrackWorkApp', ['ui.router', 'ngStorage']);
+var trackworkApp = angular.module('TrackWorkApp', ['ui.router', 'ngStorage', 'chart.js']);
 
 trackworkApp.run(['UserService', '$state', '$rootScope', function(UserService, $state, $rootScope) {
 
