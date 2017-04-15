@@ -3,8 +3,6 @@
 body{
   background-image: url('../images/background-coffee.jpg');
   background-attachment: fixed;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 a:focus, a:active,
@@ -22,7 +20,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   height: 250px;
   background-image: url('../images/logo-trackwork.jpg');
   background-size: cover;
-  background-position: 0% 20%;
+  background-position: 0% 30%;
 }
 
 #main-nav{
