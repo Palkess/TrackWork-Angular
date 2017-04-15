@@ -4,10 +4,17 @@
  */
 angular
     .module('TrackWorkApp')
-    .controller('ReportsController', ReportsController);
+    .controller('ReportsController',['$sessionStorage', 'EntryService', ReportsController]);
 
-function ReportsController() {
+function ReportsController(sessionStorage, EntryService) {
   var vm = this;
+  vm.entries = [];
 
-  vm.message = "Hi, I'm reports";
+  EntryService.getAll()
+    .then(function(data) {
+      console.log(data);
+      vm.entries = data;
+    }, function(err) {
+      console.log(err);
+    });
 }

@@ -1,2 +1,48 @@
-<h1>Reports</h1>
-{{reports.message}}
+<table class="table table-condensed">
+  <tr>
+    <th>
+      #
+    </th>
+    <th>
+      Comment
+    </th>
+    <th>
+      Overtime
+    </th>
+    <th>
+      Elapsed time
+    </th>
+    <th>
+      Weekday
+    </th>
+    <th>
+      Date
+    </th>
+    <th>
+      Actual time
+    </th>
+  </tr>
+  <tr ng-repeat="entry in reports.entries">
+    <td>
+      {{$index}}
+    </td>
+    <td>
+      {{entry.description}}
+    </td>
+    <td>
+      {{entry.overtime ? "Yes" : ""}}
+    </td>
+    <td>
+      {{entry.start | dateDiff : entry.end : 'h'}} hours
+    </td>
+    <td>
+      {{entry.start | date:"EEEE"}}
+    </td>
+    <td>
+      {{entry.start | date:"yyyy-MM-dd"}}
+    </td>
+    <td>
+      {{entry.start | date:"HH:mm"}} - {{entry.end | date:"HH:mm"}}
+    </td>
+  </tr>
+</table>
